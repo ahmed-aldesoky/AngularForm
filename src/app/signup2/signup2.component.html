@@ -1,0 +1,72 @@
+<body>
+    
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form #userForm="ngForm">
+
+                <h1>Create Account</h1>
+                
+              
+              
+                <input type="text" pattern="^[a-zA-Z\s]+$" [class.notvalid]="name.invalid &&name.touched" required name="name" #name="ngModel" [(ngModel)]="personalModel.name" placeholder="Name" />
+                <div *ngIf="name.errors&&name.touched" >
+                    <small class="error" *ngIf="name.errors['required']">name is required.</small>
+                    <small class="error" *ngIf="name.errors['pattern']">name is not valid.</small>
+                </div>
+               
+               
+                <input type="email"  [class.notvalid]="email.invalid &&email.touched" required name="email" #email="ngModel" [(ngModel)]="personalModel.email" placeholder="Email" />
+                <div *ngIf="email.errors&&email.touched" >
+                    <small class="error" *ngIf="email.errors['required']">email is required.</small>
+                </div>
+                
+                
+                
+                <input type="tel" pattern="^\d{11}$" [class.notvalid]="phone.invalid &&phone.touched" required name="phone" #phone="ngModel" [(ngModel)]="personalModel.phone" placeholder="phone" />
+                <div *ngIf="phone.errors&&phone.touched" >
+                    <small class="error" *ngIf="phone.errors['required']">phone is required.</small>
+                    <small class="error" *ngIf="phone.errors['pattern']">phone is not valid.</small>
+                </div>
+         
+
+                
+
+
+
+               
+                
+             
+           
+
+            <!-- <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+                <div *ngIf="password.errors[required]">Password is required.</div>
+
+                
+            </div> -->
+
+
+
+
+                <input type="submit" class="sub"  value="submit">
+
+            </form>
+        </div>
+    
+    
+    
+        
+        <div class="overlay-container">
+            <div class="overlay">
+                
+                <div class="overlay-panel overlay-right">
+                    <h1>Already have an account !</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut repellendus placeat facilis? Excepturi modi necessitatibus quis sapiente dolores nam dolorum officiis. Et, quidem? Quibusdam unde error aliquam itaque. Officiis, architecto.</p>
+                    <button class="ghost" id="signUp" routerLink="/Login">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    

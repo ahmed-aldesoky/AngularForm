@@ -1,0 +1,65 @@
+<body>
+    
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form #userForm="ngForm" novalidate (ngSubmit)="submitData()">
+            
+                <!-- {{userModel|json}} -->
+
+                <h1>Create Account</h1> 
+                
+                
+                <input type="text" pattern="^[\u0621-\u064A\u0660-\u0669 ]+$" [class.notvalid]="arName.invalid &&arName.touched"  required name="arName" #arName="ngModel" [(ngModel)]="userModel.arName" placeholder="Arabic Company Name" />
+                <div *ngIf="arName.errors&&arName.touched" >
+                    <small class="error" *ngIf="arName.errors['pattern']">name is not valid.</small>
+                    <small class="error" *ngIf="arName.errors['required']">name is required.</small>
+
+                </div>
+
+
+
+                <input type="text" pattern="^[a-zA-Z\s]+$" [class.notvalid]="enName.invalid &&enName.touched" required name="enName" #enName="ngModel" [(ngModel)]="userModel.enName" placeholder="English Company Name" />
+                <div *ngIf="enName.errors&&enName.touched" >
+                    <small class="error" *ngIf="enName.errors['required']">name is required.</small>
+                    <small class="error" *ngIf="enName.errors['pattern']">name is not valid.</small>
+                </div>
+
+
+                <input type="text" pattern="[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" [class.notvalid]="website.invalid &&website.touched" name="website" #website="ngModel" [(ngModel)]="userModel.website" placeholder="Website" />
+                <div *ngIf="website.errors&&website.touched" >
+                    <small class="error" *ngIf="website.errors['required']">name is required.</small>
+                    <small class="error" *ngIf="website.errors['pattern']">name is not valid.</small>
+                </div>
+
+                
+                <input type="text" pattern="^\d{10}$" [class.notvalid]="cumericalNum.invalid &&cumericalNum.touched" required name="cumericalNum" #cumericalNum="ngModel" [(ngModel)]="userModel.cumericalNum" placeholder="Commerical Number" />
+                <div *ngIf="cumericalNum.errors&&cumericalNum.touched" >
+                    <small class="error" *ngIf="cumericalNum.errors['required']">name is required.</small>
+                    <small class="error" *ngIf="cumericalNum.errors['pattern']">name is not valid.</small>
+                </div>
+
+                
+                <input type="submit"   class="sub"  value="submit">
+                
+            </form>
+
+        </div>
+    
+    
+    
+        
+        <div class="overlay-container">
+            <div class="overlay">
+                
+                <div class="overlay-panel overlay-right">
+                    <h1>Already have an account !</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut repellendus placeat facilis? Excepturi modi necessitatibus quis sapiente dolores nam dolorum officiis. Et, quidem? Quibusdam unde error aliquam itaque. Officiis, architecto.</p>
+                    <button class="ghost" id="signUp" routerLink="/Login">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    </body>
